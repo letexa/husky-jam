@@ -10,7 +10,16 @@ return [
         ],
         'urlManager' => [
             'enablePrettyUrl' =>true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'schedule'],
+            ],
+        ],
+        'request' => [
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
     ],
     'modules' => [

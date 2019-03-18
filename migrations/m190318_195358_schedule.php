@@ -67,6 +67,21 @@ class m190318_195358_schedule extends Migration
 
     public function safeDown()
     {
+        $this->dropForeignKey(
+            'fk-carrier-carrier_id',
+            'schedule'
+        );
+        
+        $this->dropForeignKey(
+            'fk-station-departure_id',
+            'schedule'
+        );
+        
+        $this->dropForeignKey(
+            'fk-station-arrival_id',
+            'schedule'
+        );
+        
         $this->dropIndex('carrier_id', '{{%schedule}}');
         $this->dropIndex('departure_id', '{{%schedule}}');
         $this->dropIndex('arrival_id', '{{%schedule}}');
