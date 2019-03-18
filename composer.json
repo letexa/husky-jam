@@ -1,0 +1,11 @@
+{
+    "require": {
+        "yiisoft/yii2": "2.0.15",
+        "yiisoft/yii2-bootstrap": "^2.0",
+        "yiisoft/yii2-gii": "^2.1"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "^2.0.0",
+        "insolita/yii2-migration-generator": "~3.1"
+    }
+}

@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'id' => 'husky-jam',
+    'basePath' => realpath(__DIR__ . '/../'),
+    'components' => [
+        'db' => require(__DIR__ . '/db.php'),
+        'request' => [
+            'cookieValidationKey' => 'jfhdyh7346rghstgr576490gf',
+        ],
+        'urlManager' => [
+            'enablePrettyUrl' =>true,
+            'showScriptName' => false,
+        ],
+    ],
+    'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module'
+        ]
+    ],
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+    ],
+    'extensions' => require(__DIR__  . '/../vendor/yiisoft/extensions.php')
+];
