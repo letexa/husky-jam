@@ -5,6 +5,7 @@ Yii::setAlias('@bar', 'http://husky-jam.loc');
 return [
     'id' => 'husky-jam',
     'basePath' => realpath(__DIR__ . '/../'),
+    'defaultRoute' => 'schedule',
     'modules' => [
         'gii' => [
             'class' => 'yii\gii\Module'

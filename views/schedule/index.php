@@ -2,7 +2,7 @@
     use kartik\grid\GridView;
 ?>
 
-<a class="btn btn-primary" href="#" role="button">Добавить запись</a>
+<a class="btn btn-primary" href="/schedule/edit" role="button" style="margin: 20px">Добавить запись</a>
 
 <?php \yii\widgets\Pjax::begin(); ?>
     <?php echo GridView::widget([
