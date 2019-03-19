@@ -36,6 +36,14 @@ class IndexAction extends Action
             $filter['departure_id'] = $requestParams['departure'];
         }
         
+        if (!empty($requestParams['arrival'])) {
+            $filter['arrival_id'] = $requestParams['arrival'];
+        }
+        
+        if (!empty($requestParams['carrier'])) {
+            $filter['carrier_id'] = $requestParams['carrier'];
+        }
+        
         if (!empty($filter)) {
             $query->andWhere($filter);
         }

@@ -14,7 +14,7 @@ class ScheduleSearch extends Schedule
     public function rules()
     {
         return [
-            [['departure'], 'string']
+            [['departure', 'arrival', 'carrier'], 'string']
         ];
     }
 
@@ -23,7 +23,7 @@ class ScheduleSearch extends Schedule
         $provider = new ArrayDataProvider([
             'allModels' => Schedule::findAll($params),
             'pagination' => [
-                'pageSize' => 10,
+                'pageSize' => 50,
             ],
             'sort' => [
                 'attributes' => ['id'],

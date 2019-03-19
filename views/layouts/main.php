@@ -24,7 +24,8 @@ app\assets\ApplicationAssetBundle::register($this);
         <div class="col-sm-2">
             <nav class="navbar navbar-light bg-light">
                 <a class="navbar-brand" href="/">Главная</a>
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="/station">Станции</a>
+                <a class="navbar-brand" href="/carrier">Перевозчики</a>
             </nav>
         </div>
         <div class="col-sm-10">

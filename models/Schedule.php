@@ -20,13 +20,30 @@ class Schedule extends \yii\base\Model {
     public $arrival;
     public $carrier;
     
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'departure' => 'Станция отправления',
+            'departure_time' => 'Время отправления',
+            'arrival' => 'Станция прибытия',
+            'arrival_time' => 'Время прибытия',
+            'travel_time' => 'Время в пути',
+            'cost' => 'Цена билета',
+            'days' => 'График движения',
+            'carrier' => 'Перевозчик'
+        ];
+    }
+    
     static public function findAll($params = null)
     {
         $data = [];
         $client = new Client();
         $response = $client->createRequest()
             ->setMethod('GET')
-            ->setData($params['ScheduleSearch'] ?: null)
+            ->setData(isset($params['ScheduleSearch']) ? $params['ScheduleSearch'] : null)
             ->setUrl(Yii::getAlias('@bar').'/api/schedule')
             ->send();
         if ($response->isOk) {
