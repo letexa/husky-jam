@@ -1,31 +1,32 @@
 <?php
 
+Yii::setAlias('@bar', 'http://husky-jam.loc');
+
 return [
     'id' => 'husky-jam',
     'basePath' => realpath(__DIR__ . '/../'),
+    'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module'
+        ],
+        'api' => [
+            'class' => 'app\api\ApiModule'
+        ],
+        'gridview' =>  [
+            'class' => '\kartik\grid\Module'
+        ],
+    ],
     'components' => [
         'db' => require(__DIR__ . '/db.php'),
         'request' => [
             'cookieValidationKey' => 'jfhdyh7346rghstgr576490gf',
         ],
         'urlManager' => [
-            'enablePrettyUrl' =>true,
-            'enableStrictParsing' => true,
-            'showScriptName' => false,
-            'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'schedule'],
-            ],
+            'enablePrettyUrl' => true,
         ],
-        'request' => [
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
-            ]
+        'user' => [
+            'identityClass' => 'app\models\user\UserRecord'
         ],
-    ],
-    'modules' => [
-        'gii' => [
-            'class' => 'yii\gii\Module'
-        ]
     ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',

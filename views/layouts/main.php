@@ -19,7 +19,18 @@ app\assets\ApplicationAssetBundle::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div class="container">
-    <?= $content ?>
+    <h1 class="text-center">Тестовое задание для Husky Jam</h1>
+    <div class="row">
+        <div class="col-sm-2">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="/">Главная</a>
+                <a class="navbar-brand" href="#">Navbar</a>
+            </nav>
+        </div>
+        <div class="col-sm-10">
+            <?= $content ?>
+        </div>
+    </div>
 </div>
 <?php $this->endBody() ?>
 </body>

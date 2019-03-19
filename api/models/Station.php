@@ -1,25 +1,26 @@
 <?php
 
-namespace app\models;
+namespace app\api\models;
 
 use Yii;
 
 /**
- * This is the model class for table "carrier".
+ * This is the model class for table "station".
  *
  * @property int $id
  * @property string $name
  *
  * @property Schedule[] $schedules
+ * @property Schedule[] $schedules0
  */
-class Carrier extends \yii\db\ActiveRecord
+class Station extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'carrier';
+        return 'station';
     }
 
     /**
@@ -49,6 +50,14 @@ class Carrier extends \yii\db\ActiveRecord
      */
     public function getSchedules()
     {
-        return $this->hasMany(Schedule::className(), ['carrier_id' => 'id']);
+        return $this->hasMany(Schedule::className(), ['arrival_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSchedules0()
+    {
+        return $this->hasMany(Schedule::className(), ['departure_id' => 'id']);
     }
 }
