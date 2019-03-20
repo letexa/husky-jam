@@ -7,6 +7,8 @@ use yii\httpclient\Client;
 
 class Carrier extends \yii\base\Model {
     
+    const TABLE_NAME = 'carrier';
+    
     public $id;
     public $name;
     

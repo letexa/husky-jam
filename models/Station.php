@@ -7,6 +7,8 @@ use yii\httpclient\Client;
 
 class Station extends \yii\base\Model {
     
+    const TABLE_NAME = 'station';
+    
     public $id;
     public $name;
     

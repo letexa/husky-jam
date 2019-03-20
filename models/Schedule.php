@@ -7,6 +7,8 @@ use yii\httpclient\Client;
 
 class Schedule extends \yii\base\Model {
     
+    const TABLE_NAME = 'schedule';
+    
     const WEEK = [
         0 => 'пн',
         1 => 'вт',

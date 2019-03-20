@@ -2,6 +2,7 @@
 
 use yii\db\Schema;
 use yii\db\Migration;
+use app\models\Schedule;
 
 class m190318_195358_schedule extends Migration
 {
@@ -17,7 +18,7 @@ class m190318_195358_schedule extends Migration
         $tableOptions = 'ENGINE=InnoDB';
 
         $this->createTable(
-            '{{%schedule}}',
+            Schedule::TABLE_NAME,
             [
                 'id'=> $this->primaryKey(11),
                 'departure_id'=> $this->integer(11),
@@ -85,6 +86,6 @@ class m190318_195358_schedule extends Migration
         $this->dropIndex('carrier_id', '{{%schedule}}');
         $this->dropIndex('departure_id', '{{%schedule}}');
         $this->dropIndex('arrival_id', '{{%schedule}}');
-        $this->dropTable('{{%schedule}}');
+        $this->dropTable(Schedule::TABLE_NAME);
     }
 }

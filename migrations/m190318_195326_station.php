@@ -2,6 +2,7 @@
 
 use yii\db\Schema;
 use yii\db\Migration;
+use app\models\Station;
 
 class m190318_195326_station extends Migration
 {
@@ -17,7 +18,7 @@ class m190318_195326_station extends Migration
         $tableOptions = 'ENGINE=InnoDB';
 
         $this->createTable(
-            '{{%station}}',
+            Station::TABLE_NAME,
             [
                 'id'=> $this->primaryKey(11),
                 'name'=> $this->string(255)->notNull(),
@@ -28,6 +29,6 @@ class m190318_195326_station extends Migration
 
     public function safeDown()
     {
-        $this->dropTable('{{%station}}');
+        $this->dropTable(Station::TABLE_NAME);
     }
 }

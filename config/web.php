@@ -1,6 +1,6 @@
 <?php
 
-Yii::setAlias('@bar', 'http://husky-jam.loc');
+Yii::setAlias('@bar', 'http://'.env('BASE_URL'));
 
 return [
     'id' => 'husky-jam',
