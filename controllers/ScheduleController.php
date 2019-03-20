@@ -5,7 +5,6 @@ namespace app\controllers;
 use Yii;
 use app\models\search\ScheduleSearch;
 use app\models\Schedule;
-use app\models\Station;
 
 class ScheduleController extends \yii\web\Controller {
     

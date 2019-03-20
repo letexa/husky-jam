@@ -52,8 +52,8 @@ class Schedule extends \yii\base\Model {
             'arrival_id' => 'Станция прибытия',
             'arrival' => 'Станция прибытия',
             'arrival_time' => 'Время прибытия',
-            'travel_time' => 'Время в пути',
-            'cost' => 'Цена билета',
+            'travel_time' => 'Время в пути (мин)',
+            'cost' => 'Цена билета (руб)',
             'days' => 'График движения',
             'carrier_id' => 'Перевозчик',
             'carrier' => 'Перевозчик'

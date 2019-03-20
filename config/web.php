@@ -26,7 +26,9 @@ return [
             'enablePrettyUrl' => true,
             'rules' => [
                 ['pattern'=>'schedule/edit/<id>', 'route'=>'schedule/edit'],
-                ['pattern'=>'schedule/delete/<id>', 'route'=>'schedule/delete']
+                ['pattern'=>'schedule/delete/<id>', 'route'=>'schedule/delete'],
+                ['pattern'=>'station/delete/<id>', 'route'=>'station/delete'],
+                ['pattern'=>'carrier/delete/<id>', 'route'=>'carrier/delete']
             ]
         ],
         'user' => [
