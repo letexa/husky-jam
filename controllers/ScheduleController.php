@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\search\ScheduleSearch;
 use app\models\Schedule;
+use app\models\Station;
 
 class ScheduleController extends \yii\web\Controller {
     
@@ -23,17 +24,28 @@ class ScheduleController extends \yii\web\Controller {
         $data = Yii::$app->request->post();
         if (!$id) {
             $model = new Schedule();
-            
-            if ($model->load($data)) {
-                print_r($model);
-            }
+        } else {
+            $model = Schedule::findOne($id);
         }
         
-        return $this->render('edit', [ 'model' => $model ]);
+        if ($data && $model->load($data) && $model->save()) {
+            $this->redirect('/');
+        }
+
+        $data['model'] = $model;
+        $data['station'] = \yii\helpers\ArrayHelper::map(
+            \app\models\Station::findAll(), 'id', 'name'
+        );
+        $data['carrier'] = \yii\helpers\ArrayHelper::map(
+            \app\models\Carrier::findAll(), 'id', 'name'
+        );
+        
+        return $this->render('edit', $data);
     }
     
-    public function actionRemove()
+    public function actionDelete($id)
     {
-        
+        Schedule::delete($id);
+        $this->redirect('/');
     }
 }

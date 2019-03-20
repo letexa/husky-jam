@@ -1,5 +1,6 @@
 <?php
     use kartik\grid\GridView;
+    use kartik\helpers\Html;
 ?>
 
 <a class="btn btn-primary" href="/schedule/edit" role="button" style="margin: 20px">Добавить запись</a>
@@ -21,7 +22,7 @@
                    'pluginOptions'=>[ 'allowClear'=>true ],
                 ],
                 'filter'=>\yii\helpers\ArrayHelper::map(
-                    \app\models\Departure::findAll(), 'id', 'name'
+                    \app\models\Station::findAll(), 'id', 'name'
                 ),
                 'format'=>'html',
                 'width'=>'150px',
@@ -36,7 +37,7 @@
                    'pluginOptions'=>[ 'allowClear'=>true ],
                 ],
                 'filter'=>\yii\helpers\ArrayHelper::map(
-                    \app\models\Arrival::findAll(), 'id', 'name'
+                    \app\models\Station::findAll(), 'id', 'name'
                 ),
                 'format'=>'html',
                 'width'=>'150px',
@@ -58,8 +59,29 @@
                 'format'=>'html',
                 'width'=>'150px',
             ],
-            'days',
-            ['class' => 'yii\grid\ActionColumn']
+            [
+                'attribute' => 'days',
+                'value' => function($data) {
+                    return \app\models\Schedule::prepareDays($data['days']);
+                }
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn', 
+                'template'=>'{update} {delete}',
+                'buttons' => [
+                    'update' => function ($url, $data) {
+                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', '/schedule/edit/' . $data['id'], [
+                                    'title' => Yii::t('app', 'lead-update'),
+                        ]);
+                    },
+                    'delete' => function ($url, $data) {
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', '/schedule/delete/' . $data['id'], [
+                                    'title' => Yii::t('app', 'lead-delete'),
+                        ]);
+                    }
+
+                ]
+            ]
         ]
     ]); ?>
 <?php \yii\widgets\Pjax::end(); ?>

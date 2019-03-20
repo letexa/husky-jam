@@ -15,7 +15,7 @@ class ScheduleController extends \yii\rest\ActiveController {
                 'class' => IndexAction::class,
                 'modelClass' => $this->modelClass,
                 'checkAccess' => [$this, 'checkAccess'],
-            ],
+            ]
         ];
 
         return array_merge(parent::actions(), $actions);

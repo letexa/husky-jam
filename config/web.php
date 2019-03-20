@@ -24,6 +24,10 @@ return [
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'rules' => [
+                ['pattern'=>'schedule/edit/<id>', 'route'=>'schedule/edit'],
+                ['pattern'=>'schedule/delete/<id>', 'route'=>'schedule/delete']
+            ]
         ],
         'user' => [
             'identityClass' => 'app\models\user\UserRecord'

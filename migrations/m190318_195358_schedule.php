@@ -20,14 +20,14 @@ class m190318_195358_schedule extends Migration
             '{{%schedule}}',
             [
                 'id'=> $this->primaryKey(11),
-                'departure_id'=> $this->integer(11)->notNull(),
-                'departure_time'=> $this->datetime()->notNull(),
-                'arrival_id'=> $this->integer(11)->notNull(),
-                'arrival_time'=> $this->datetime()->notNull(),
-                'travel_time'=> $this->integer(11)->notNull(),
-                'cost'=> $this->decimal(10, 2)->notNull(),
-                'carrier_id'=> $this->integer(11)->notNull(),
-                'days'=> $this->text()->notNull(),
+                'departure_id'=> $this->integer(11),
+                'departure_time'=> $this->string(255),
+                'arrival_id'=> $this->integer(11),
+                'arrival_time'=> $this->string(255),
+                'travel_time'=> $this->integer(11),
+                'cost'=> $this->decimal(10, 2),
+                'carrier_id'=> $this->integer(11),
+                'days'=> $this->text(),
             ],$tableOptions
         );
         $this->createIndex('carrier_id','{{%schedule}}',['carrier_id'],false);

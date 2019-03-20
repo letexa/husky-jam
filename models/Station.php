@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 use yii\httpclient\Client;
 
-class Departure extends \yii\base\Model {
+class Station extends \yii\base\Model {
     
     public $id;
     public $name;
@@ -16,7 +16,7 @@ class Departure extends \yii\base\Model {
         $client = new Client();
         $response = $client->createRequest()
             ->setMethod('GET')
-            ->setUrl(Yii::getAlias('@bar').'/api/departure')
+            ->setUrl(Yii::getAlias('@bar').'/api/station')
             ->send();
         if ($response->isOk) {
             $data = $response->data;
