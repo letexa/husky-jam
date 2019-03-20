@@ -1,9 +1,15 @@
 #!/usr/bin/env php
 
 <?php
-define('YII_DEBUG', true);
 
 require  __DIR__ . '/vendor/autoload.php';
+require(__DIR__ . '/helpers/helpers.php');
+
+$dotenv = Dotenv\Dotenv::create(__DIR__);
+$dotenv->load();
+
+define('YII_DEBUG', true);
+
 require  __DIR__ . '/vendor/yiisoft/yii2/Yii.php';
 
 $config = require __DIR__ . '/config/console.php';
