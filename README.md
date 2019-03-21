@@ -11,7 +11,8 @@ git clone https://github.com/letexa/husky-jam.git
 ```
 composer install
 ```
-Перед запуском миграций необходимо сделать копию файла .env.example и переименовать его в .env. Выставить свои данные в конфиг: url проекта, 
+Перед запуском миграций необходимо сделать копию файла .env.example и переименовать его в .env. 
+Создать рабочую и тестовую базы данных и выставить свои данные в конфиг: url проекта, 
 конфиги для рабочей и тестовой баз данных.
 
 Запуск миграций
@@ -21,8 +22,20 @@ composer install
 
 После выполнения миграций, для автоматических тестов необходимо создать дамп БД и сохранить в файл /tests/_data/dump.sql
 
+### Из docker
+```
+docker run -it sillycase/huskyjam
+```
+Определить ip контейнера
+```
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
+```
+и прописать хост husky.loc в файле hosts
+```
+172.17.0.2 husky.loc www.husky.loc
+```
 
-### Рекомендованная конфигурация nginx
+Рекомендованная конфигурация nginx
 ```
 server {
         listen 80;
