@@ -35,7 +35,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' con
 172.17.0.2 husky.loc www.husky.loc
 ```
 
-####Рекомендованная конфигурация nginx
+Рекомендованная конфигурация nginx:
 ```
 server {
         listen 80;
