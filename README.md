@@ -34,11 +34,7 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' con
 ```
 172.17.0.2 husky.loc www.husky.loc
 ```
-Если ip будет отличатся от 172.17.0.2 запись 
-```
-172.17.0.2 husky.loc www.husky.loc
-```
-надо будет сделать и в файле /etc/hosts докер контейнера.
+Так же эту запись надо будет сделать и в файле /etc/hosts докер контейнера.
 
 В докер контейнере запустить необходимые службы:
 ```
