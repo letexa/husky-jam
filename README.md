@@ -40,6 +40,13 @@ docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' con
 ```
 надо будет сделать и в файле /etc/hosts докер контейнера.
 
+В докер контейнере запустить необходимые службы:
+```
+service mysql start
+service nginx start
+service php7.1-fpm start
+```
+
 Рекомендованная конфигурация nginx:
 ```
 server {
